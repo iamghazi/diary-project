@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Update Profile{% endblock %}
+
+{% block content %}
+<nav class="navbar bg-light navbar-light navbar-expand-md">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'accounts:profile' %}">
+        {% if user.user_profile.photo %}
+        <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
+         alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
+         {% endif %}
+         {{user.username}}
+      </a>
+    </li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+  </ul>
+</nav>
+<h1 class="mt-0 mb-4">Update Profile</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{user_form | crispy}}
+  {{profile_form | crispy}}
+  <button type="submit" class="btn btn-success">Save Profile</button>
+</form>
+{% endblock %}

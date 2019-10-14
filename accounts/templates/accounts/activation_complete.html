@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Account Activated{% endblock %}
+
+{% block content %}
+<nav class="navbar bg-light navbar-light navbar-expand-md">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+  </ul>
+</nav>
+<h1 class="mt-2">Activation Successful!</h1>
+<p class="mt-0 mb-4">Your account has been activated. You can <a href="{% url 'accounts:login' %}">login</a> now.</p>
+{% endblock %}

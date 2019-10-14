@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Notes{% endblock %}
+
+{% block content %}
+<nav class="navbar bg-light navbar-light navbar-expand-md">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'accounts:profile' %}">
+        <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
+         alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
+         {{user.username}}
+      </a>
+    </li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'notes:new_note' %}">Create</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'accounts:password_change' %}">Change Password</a></li>
+    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+  </ul>
+</nav>
+<h1 class="mt-2">Your Posts</h1>
+<ul class="list-group">
+  {% for note in object_list %}
+    <li class="list-group-item">
+      <a href="{% url 'notes:note_detail' pk=note.pk %}">
+        <h4 class="mt-2 list-group-item-heading">
+          {{note.title}}
+        </h4>
+        <p class="mt-0 mb-4 list-group-item-text">
+          {{note.content | slice:":63"}}...
+        </p>
+      </a>
+      <span>
+        <a style="font-size:0.7em;" href="#">Created By: {{note.user.first_name}} {{note.user.last_name}}</a> |
+        <a style="font-size:0.7em;" href="#">Created At: {{note.created_at}}</a> 
+        <!-- <a style="font-size:0.7em;" href="{% url 'notes:note_update' pk=note.pk %}">Update</a> |
+        <a style="font-size:0.7em;" href="{% url 'notes:note_delete' pk=note.pk %}">Delete</a> -->
+      </span>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

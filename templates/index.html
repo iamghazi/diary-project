@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <nav class="navbar bg-light navbar-light navbar-expand-md">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'accounts:profile' %}">
+          {% if user.user_profile.photo %}
+          <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
+           alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
+           {% endif %}
+           {{user.username}}
+        </a>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'notes:new_note' %}">Create</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'notes:notes_list' %}">Notes</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'accounts:password_change' %}">Change Password</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+    </ul>
+  </nav>
+  <h1 class="mt-2">What's up?</h1>
+{%else%}
+  <nav class="navbar bg-light navbar-light navbar-expand-md">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Login</a></li>
+      <li class="nav-item"><a class="nav-link" href="{% url 'accounts:django_registration_register' %}">Signup</a></li>
+    </ul>
+  </nav>
+  <h1 class="mt-2">Welcome to MyDiary!</h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,7 @@
+{% autoescape off %}
+Hello {{ user.first_name }} {{ user.last_name }},
+Please confirm your subscription by clicking on the following link,
+{{ scheme }}://{{ site.domain }}/accounts/activate/{{ activation_key }}
+
+
+{% endautoescape %}
