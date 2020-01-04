@@ -18,9 +18,9 @@
     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
   </ul>
 </nav>
-<h1 class="mt-2">{{object.title}}</h1>
+<h1 class="mt-2 bg-light p-2">{{object.title}}</h1>
 <hr class="mt-0 mb-4">
-<p class="mt-2">{{object.content}}</p>
+<p class="mt-2 bg-light p-2">{{object.content}}</p>
 <a href="{% url 'notes:note_update' pk=object.pk %}">
   <button type="button" class="btn btn-warning" name="button">Update</button>
 </a>

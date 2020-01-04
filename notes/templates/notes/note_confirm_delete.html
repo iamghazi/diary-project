@@ -18,8 +18,8 @@
     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
   </ul>
 </nav>
-<h1 class="mt-2">Delete Note</h1>
-<p class="mt-2">Are you sure you want to delete this? You won't be able to retrieve it once you delete it.</p>
+<h1 class="mt-2 bg-light p-2">Delete Note</h1>
+<p class="mt-2 bg-light p-2">Are you sure you want to delete this? You won't be able to retrieve it once you delete it.</p>
 <form method="post">
   {% csrf_token %}
   <input type="submit" name="" value="Confirm Delete" class="btn btn-danger">

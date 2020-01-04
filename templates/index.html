@@ -20,7 +20,7 @@
       <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
     </ul>
   </nav>
-  <h1 class="mt-2">What's up?</h1>
+  <h1 class="mt-2 bg-light p-2">What's up?</h1>
 {%else%}
   <nav class="navbar bg-light navbar-light navbar-expand-md">
     <ul class="navbar-nav ml-auto">
@@ -28,6 +28,6 @@
       <li class="nav-item"><a class="nav-link" href="{% url 'accounts:django_registration_register' %}">Signup</a></li>
     </ul>
   </nav>
-  <h1 class="mt-2">Welcome to MyDiary!</h1>
+  <h1 class="mt-2 bg-light p-2">Welcome to MyDiary!</h1>
 {% endif %}
 {% endblock %}

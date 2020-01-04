@@ -17,17 +17,17 @@
     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
   </ul>
 </nav>
-<h1 class="mt-2">My Profile</h1>
-<p>Email: {{user.email}}</p>
-<p>First Name: {{user.first_name}}</p>
-<p>Last Name: {{user.last_name}}</p>
-<p>Profile Picture:
+<h1 class="mt-2 bg-light p-2">My Profile</h1>
+<p class="text-white">Email: {{user.email}}</p>
+<p class="text-white">First Name: {{user.first_name}}</p>
+<p class="text-white">Last Name: {{user.last_name}}</p>
+<p class="text-white">Profile Picture:
 {% if profile.photo %}
  <img src="http://127.0.0.1:8000/accounts{{profile.photo.url}}" alt="My profile pic" width="50px" height="50px">
 {% endif %}
 </p>
-<p>Phone: {{profile.phone}}</p>
-<p>Bio: {{profile.bio}}</p>
-<p>City: {{profile.city}}</p>
-<a href="{% url 'accounts:update_profile' %}"><button type="button" name="button" class="btn btn-primary">Update Profile</button></a>
+<p class="text-white">Phone: {{profile.phone}}</p>
+<p class="text-white">Bio: {{profile.bio}}</p>
+<p class="text-white">City: {{profile.city}}</p>
+<a href="{% url 'accounts:update_profile' %}"><button type="button" name="button" class="btn btn-light">Update Profile</button></a>
 {% endblock %}
