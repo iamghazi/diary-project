@@ -10,7 +10,7 @@ from .models import Note
 
 class CreateNote(CreateView):
     form_class = NotesCreationForm
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('notes:notes_list')
     template_name = 'notes/new_note.html'
 
     def form_valid(self, form):

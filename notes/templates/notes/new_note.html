@@ -9,7 +9,7 @@
       <a class="nav-link" href="{% url 'accounts:profile' %}">
         <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
          alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
-         {{user.username}}
+         {{user.first_name}}
       </a>
     </li>
     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>

@@ -11,14 +11,13 @@
         <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
          alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
          {% endif %}
-         {{user.username}}
+         {{user.first_name}}
       </a>
     </li>
     <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
   </ul>
 </nav>
 <h1 class="mt-2">My Profile</h1>
-<p>Username: {{user.username}}</p>
 <p>Email: {{user.email}}</p>
 <p>First Name: {{user.first_name}}</p>
 <p>Last Name: {{user.last_name}}</p>

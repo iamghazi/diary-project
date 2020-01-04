@@ -9,7 +9,7 @@
       <a class="nav-link" href="{% url 'accounts:profile' %}">
         <img src="http://127.0.0.1:8000/accounts{{user.user_profile.photo.url}}"
          alt="My profile pic" width="25px" height="25px" style="border-radius:50%;">
-         {{user.username}}
+         {{user.first_name}}
       </a>
     </li>
     <li class="nav-item"><a class="nav-link" href="{% url 'notes:new_note' %}">Create</a></li>
@@ -17,7 +17,7 @@
     <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
   </ul>
 </nav>
-<h1 class="mt-2">Your Posts</h1>
+<h1 class="mt-2">Your Notes</h1>
 <ul class="list-group">
   {% for note in object_list %}
     <li class="list-group-item">
@@ -31,7 +31,7 @@
       </a>
       <span>
         <a style="font-size:0.7em;" href="#">Created By: {{note.user.first_name}} {{note.user.last_name}}</a> |
-        <a style="font-size:0.7em;" href="#">Created At: {{note.created_at}}</a> 
+        <a style="font-size:0.7em;" href="#">Created At: {{note.created_at}}</a>
         <!-- <a style="font-size:0.7em;" href="{% url 'notes:note_update' pk=note.pk %}">Update</a> |
         <a style="font-size:0.7em;" href="{% url 'notes:note_delete' pk=note.pk %}">Delete</a> -->
       </span>
